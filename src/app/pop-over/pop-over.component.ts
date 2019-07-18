@@ -11,16 +11,16 @@ import {
 } from '@angular/animations';
 
 @Component({
-  selector: 'pop-over',
+  selector: 'pop-over',  
   templateUrl: './pop-over.component.html',
   styleUrls: ['./pop-over.component.css'],
   animations: [
     trigger('popOverState', [
       transition('* => *', [
-        query('p',style({ transform: 'translateX(100%)'})),
+        query('p',style({ transform: 'translateX(-500%)'})),
         query('p',
           stagger('100ms', [
-            animate('500ms', style({ transform: 'translateX(0)'}))
+            animate('500ms', style({ transform: 'translateX(0%)'}))
         ]))
       ])
     ])
