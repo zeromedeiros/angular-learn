@@ -8,6 +8,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { PopOverComponent } from './pop-over/pop-over.component';
+import { PopperService } from './pop-over/popper.service';
 
 @NgModule({
   imports:      [
@@ -22,6 +23,7 @@ import { PopOverComponent } from './pop-over/pop-over.component';
     HelloComponent, 
     PopOverComponent 
   ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [PopperService]
 })
 export class AppModule { }

@@ -10,6 +10,8 @@ import {
   stagger
 } from '@angular/animations';
 
+import { PopperService } from './popper.service';
+
 @Component({
   selector: 'pop-over',  
   templateUrl: './pop-over.component.html',
@@ -17,20 +19,27 @@ import {
   animations: [
     trigger('popOverState', [
       transition('* => *', [
-        query('p',style({ transform: 'translateX(-500%)'})),
-        query('p',
-          stagger('100ms', [
-            animate('500ms', style({ transform: 'translateX(0%)'}))
+        query('div',style({ transform: 'translateX(100%)'})),
+        query('div',
+          stagger('1000ms', [
+            animate('1000ms', style({ transform: 'translateX(0%)'}))
         ]))
       ])
     ])
   ]
 })
-export class PopOverComponent implements OnInit {
+export class PopOverComponent  {
 
-  show: boolean = false;
+  show: boolean;
+  nomeTreco: string;
+  lista: string[];
 
-  constructor() { }
+  constructor(private PopperService: PopperService) {
+    this.show = false;
+    this.nomeTreco = 'Treco';
+
+    this.lista = this.PopperService.getCoisa();
+  }
 
   get stateName() {
     return this.show ? 'show' : 'hide'
@@ -39,9 +48,6 @@ export class PopOverComponent implements OnInit {
   toggle() {
     //alert(this.show);
     this.show = !this.show;    
-  }
-
-  ngOnInit() {
   }
 
 }

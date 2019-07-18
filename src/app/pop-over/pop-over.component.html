@@ -23,7 +23,7 @@
     </p></td>
     </tr>
   </table>
-</div>
+
 <button (click)="toggle()">toggle popOver</button>
 <alert type="success">
   <strong>Well done!</strong> You successfully read this important alert message.
@@ -37,3 +37,11 @@
 <alert type="danger">
   <strong>Oh snap!</strong> Change a few things up and try submitting again.
 </alert>
+
+<hr />
+<p>{{ nomeTreco }}</p>
+  <ul>
+    <li *ngFor="let coisa of lista">{{coisa}}</li>
+  </ul>
+
+</div>
